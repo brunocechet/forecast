@@ -24,9 +24,9 @@ export default function transformObjectData({ coord, main, name: city, sys, weat
 
   return {
     coord,
-    humidity,
+    humidity: `${humidity}%`,
     location,
-    pressure,
+    pressure: `${pressure} hPa`,
     temperature,
     weather
   };
