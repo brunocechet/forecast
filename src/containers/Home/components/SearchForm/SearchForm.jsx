@@ -20,9 +20,7 @@ function SearchForm() {
     event.preventDefault();
     const cityName = event.target['city-name'].value;
 
-    if (cityName) {
-      history.push(`/city/${cityName}`);
-    }
+    cityName && history.push(`/city/${cityName}`);
   };
 
   return (
