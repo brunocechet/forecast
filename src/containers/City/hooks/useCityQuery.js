@@ -19,11 +19,24 @@ const getCityByName = async (_, cityName) => {
   params.append('q', cityName);
   params.append('units', REACT_APP_OWM_API_UNITS);
 
-  const data = await fetch(`${REACT_APP_OWM_API_URL}?${params.toString()}`).then(response => response.json());
+  const { cod, message, ...data } = await fetch(`${REACT_APP_OWM_API_URL}?${params.toString()}`).then(response =>
+    response.json()
+  );
+
+  const hasError = cod && cod >= 400;
+
+  if (hasError) {
+    return {
+      error: message,
+      errorCode: parseInt(cod, 10)
+    };
+  }
 
   return transformObjectData(data);
 };
 
 export default function useCityQuery(cityName) {
-  return useQuery(['city', cityName], getCityByName);
+  return useQuery(['city', cityName], getCityByName, {
+    retry: 3
+  });
 }
