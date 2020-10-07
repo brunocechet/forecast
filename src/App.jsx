@@ -4,8 +4,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Material
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { Container, CssBaseline } from '@material-ui/core';
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
 
 // Container Components
@@ -24,21 +23,23 @@ function App() {
   const classes = useStyles();
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container className={classes.container}>
-        <Router>
-          <Switch>
-            <Route path="/city/:name">
-              <City />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </Router>
-      </Container>
-    </ThemeProvider>
+    <React.StrictMode>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Container className={classes.container}>
+          <Router>
+            <Switch>
+              <Route path="/city/:name">
+                <City />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </Router>
+        </Container>
+      </ThemeProvider>
+    </React.StrictMode>
   );
 }
 
