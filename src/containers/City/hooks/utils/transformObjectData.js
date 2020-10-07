@@ -1,4 +1,4 @@
-export default function transformObjectData({ coord, main, name: city, sys, weather: weatherData } = {}) {
+export default function transformObjectData({ coord, main, name: city, sys, weather: weatherData, dt } = {}) {
   const { feels_like: feelsLike, humidity, pressure, temp: actual, temp_max: max, temp_min: min } = main ?? {};
 
   const { description, icon, main: title } = weatherData?.pop?.() ?? weatherData ?? {};
@@ -22,8 +22,13 @@ export default function transformObjectData({ coord, main, name: city, sys, weat
     title
   };
 
+  // Time of data calculation, unix, UTC
+  const dateTime = dt && new Date(dt * 1000);
+
   return {
     coord,
+    localTime: dateTime && dateTime.toLocaleTimeString(),
+    localDate: dateTime && dateTime.toLocaleDateString(),
     humidity: `${humidity}%`,
     location,
     pressure: `${pressure} hPa`,

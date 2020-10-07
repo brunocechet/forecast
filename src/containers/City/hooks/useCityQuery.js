@@ -13,6 +13,7 @@ const {
 
 const getCityByName = async (_, cityName) => {
   const params = new URLSearchParams();
+
   params.append('appid', REACT_APP_OWM_API_KEY);
   params.append('lang', REACT_APP_OWM_API_LANG);
   params.append('mode', REACT_APP_OWM_API_MODE);
