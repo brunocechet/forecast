@@ -15,10 +15,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: oleksiyrudenko/gha-git-credentials@v1
-        with:
-          name: 'Bruno Cechet'
-          email: 'brunocechet@gmail.com'
 
       - name: Use Node.js
         uses: actions/setup-node@v1
