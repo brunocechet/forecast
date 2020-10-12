@@ -30,9 +30,11 @@ jobs:
       - name: Build
         env:
           REACT_APP_OWM_API_KEY: ${{ secrets.REACT_APP_OWM_API_KEY }}
+          REACT_APP_FLICKR_API_KEY: ${{ secrets.REACT_APP_FLICKR_API_KEY }}
         run: yarn build
 
       - name: Publish
         env:
           REACT_APP_OWM_API_KEY: ${{ secrets.REACT_APP_OWM_API_KEY }}
+          REACT_APP_FLICKR_API_KEY: ${{ secrets.REACT_APP_FLICKR_API_KEY }}
         run: yarn deploy
