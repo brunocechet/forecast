@@ -15,22 +15,24 @@ function SearchInput({ name }) {
   const classes = useStyles();
 
   return (
-    <>
-      <InputBase
-        className={classes.input}
-        inputProps={{ 'aria-label': 'search by city name' }}
-        name={name}
-        placeholder="Search By City Name"
-      />
-      <IconButton type="submit" className={classes.iconButton} aria-label="search">
-        <SearchIcon />
-      </IconButton>
-    </>
+    <InputBase
+      className={classes.input}
+      fullWidth
+      inputProps={{ 'aria-label': 'search by city name' }}
+      name={name}
+      placeholder="Search By City Name"
+      type="search"
+      endAdornment={
+        <IconButton type="submit" className={classes.iconButton} aria-label="search">
+          <SearchIcon />
+        </IconButton>
+      }
+    />
   );
 }
 
 SearchInput.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 };
 
 export default SearchInput;
