@@ -34,7 +34,7 @@ jobs:
         run: yarn build
 
       - name: Publish
-      - uses: oleksiyrudenko/gha-git-credentials@v1
+        uses: oleksiyrudenko/gha-git-credentials@v1
         with:
           name: 'Bruno Cechet'
           email: 'brunocechet@gmail.com'
