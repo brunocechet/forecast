@@ -27,7 +27,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Container className={classes.container}>
-          <Router>
+          <Router basename="/forecast">
             <Switch>
               <Route path="/city/:name">
                 <City />
