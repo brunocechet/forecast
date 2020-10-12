@@ -15,6 +15,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - uses: oleksiyrudenko/gha-git-credentials@v1
+        with:
+          name: 'Bruno Cechet'
+          email: 'brunocechet@gmail.com'
 
       - name: Use Node.js
         uses: actions/setup-node@v1
@@ -34,10 +38,6 @@ jobs:
         run: yarn build
 
       - name: Publish
-        uses: oleksiyrudenko/gha-git-credentials@v1
-        with:
-          name: 'Bruno Cechet'
-          email: 'brunocechet@gmail.com'
         env:
           REACT_APP_OWM_API_KEY: ${{ secrets.REACT_APP_OWM_API_KEY }}
           REACT_APP_FLICKR_API_KEY: ${{ secrets.REACT_APP_FLICKR_API_KEY }}
