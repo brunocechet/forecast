@@ -1,20 +1,23 @@
 import React, { useEffect } from 'react';
 
-import { useParams } from 'react-router-dom';
-import { Grid, Typography, Box, Tooltip } from '@material-ui/core';
+import { useParams, useHistory } from 'react-router-dom';
+import { Grid, Typography, Box, Tooltip, Button } from '@material-ui/core';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 import useSearchHistory from 'hooks/useSearchHistory';
 import useCityQuery from './hooks/useCityQuery';
 
 import CityImage from './components/CityImage';
+import CityMap from './components/CityMap';
 import CityNotFound from './components/CityNotFound';
 import CityTemperature from './components/CityTemperature';
 import LocalDateTime from './components/LocalDateTime';
-import CityMap from './components/CityMap';
 
 function City() {
   const { name } = useParams();
-  const [addCityToHistory] = useSearchHistory();
+  const history = useHistory();
+
+  const {add: addCityToHistory} = useSearchHistory();
 
   const { isLoading, data } = useCityQuery(name);
 
@@ -32,9 +35,18 @@ function City() {
     return <CityNotFound />;
   }
 
+  const handleBackToHome = () => {
+    history.push('/');
+  };
+
   return (
     <Grid container spacing={6}>
-      <Grid item xs={12}>
+      <Grid item xs={6}>
+        <Button color="secondary" onClick={handleBackToHome} startIcon={<ArrowBackIosIcon />} variant="contained">
+          Back
+        </Button>
+      </Grid>
+      <Grid item xs={6}>
         <LocalDateTime localTime={localTime} localDate={localDate} />
       </Grid>
       <Grid item xs={4}>
