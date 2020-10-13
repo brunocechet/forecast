@@ -43,22 +43,26 @@ Uses [gh-pages](https://www.npmjs.com/package/gh-pages) npm package to do it.
 
 ## Third Party API's
 
-## Open Weather
+### Open Weather
 
 This project uses Open Weather Data to get information about the Weather.<br />
 Consumes the `current` [endpoint](https://openweathermap.org/current) <br />
 You could get your API Token creating an account [here](https://home.openweathermap.org/users/sign_up)
 
-## Mapbox
+### Mapbox
 
 This project uses MapBox to show the map from the current searched City.<br />
 Uses the `[lat,lon]` info from Open Weather API.<br />
 You could get more information and creating an account [here](https://www.mapbox.com/maps/)
 
-## Flickr
+### Flickr
 
 This project uses Flickr API to get an image from the searched city.<br />
 Is an old API and I intend to move to Unsplash in the future.<br />
 You could get more information [here](https://www.flickr.com/services/api/explore/flickr.photos.search)
 
+## Github Actions
 
+This project has an Action for CI configured.<br />
+The action tests and builds the project.<br />
+Each component has at least a unit test to guarantee the renderization of the component.
