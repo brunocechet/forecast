@@ -1,3 +1,7 @@
+# The Forecast App
+
+See the current weather for some City you want!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -27,42 +31,34 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### `yarn coverage`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Generates the code coverage to the `coverage` folder.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `yarn deploy`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Build and push the build to the `gh-pages` branch from this current repository.<br />
+It's helpful when configured Github Pages for this project.<br />
+Uses [gh-pages](https://www.npmjs.com/package/gh-pages) npm package to do it.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Third Party API's
 
-## Learn More
+## Open Weather
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project uses Open Weather Data to get information about the Weather.<br />
+Consumes the `current` [endpoint](https://openweathermap.org/current) <br />
+You could get your API Token creating an account [here](https://home.openweathermap.org/users/sign_up)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Mapbox
 
-### Code Splitting
+This project uses MapBox to show the map from the current searched City.<br />
+Uses the `[lat,lon]` info from Open Weather API.<br />
+You could get more information and creating an account [here](https://www.mapbox.com/maps/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Flickr
 
-### Analyzing the Bundle Size
+This project uses Flickr API to get an image from the searched city.<br />
+Is an old API and I intend to move to Unsplash in the future.<br />
+You could get more information [here](https://www.flickr.com/services/api/explore/flickr.photos.search)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
